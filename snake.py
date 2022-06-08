@@ -27,7 +27,6 @@ class Snake:
             )
         self.head.forward(MOVE_DISTANCE)
 
-
     def up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
@@ -43,3 +42,10 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+
+    def eat(self, food):
+        if self.head.distance(food) < 15:
+            new_segment = Turtle(shape="square")
+            new_segment.color("white")
+            new_segment.penup()
+            self.segments.append(new_segment)
